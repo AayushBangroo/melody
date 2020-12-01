@@ -1,0 +1,25 @@
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+
+  &--button {
+    padding: 0.5rem;
+    background: transparent;
+    text-decoration: none;
+    border: none;
+    border: 2px solid black;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+
+    &:hover {
+      background-color: black;
+      cursor: pointer;
+      color: white;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}

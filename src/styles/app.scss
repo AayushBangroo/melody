@@ -1,0 +1,43 @@
+@import "./player";
+@import "./song";
+@import "./library";
+@import "./nav";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  color: rgb(75, 74, 74);
+}
+
+h3,
+h4 {
+  font-weight: 400;
+  color: rgb(100, 100, 100);
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+//For firefox scrollbar styles
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+//For other browsers scrollbar styles
+*::-webkit-scrollbar {
+  width: 3px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.5);
+  border-radius: 20px;
+}
