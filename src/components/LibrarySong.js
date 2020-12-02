@@ -28,6 +28,7 @@ const LibrarySong = ({
         };
       }
     });
+    console.log("setSong from LS");
     setSongs(newSongs); //update the new state array
   };
 

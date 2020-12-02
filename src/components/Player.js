@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlay,
@@ -19,11 +19,9 @@ const Player = ({
   Songs,
   setSongs,
 }) => {
-  //useEffect
-  useEffect(() => {
-    //useEffect to fix the Library UI when song is skipped using > or < buttons
+  const activeSongHandler = (newSong) => {
     const newSongs = Songs.map((eachSong) => {
-      if (eachSong.id === currentSong.id) {
+      if (eachSong.id === newSong.id) {
         //Make the current selected song active and rest of the songs non-active in the state song array(songs)
         return {
           ...eachSong,
@@ -36,8 +34,9 @@ const Player = ({
         };
       }
     });
-    setSongs(newSongs); //update the new state array
-  }, [currentSong]); //use useEffect when currentSong is updated
+    setSongs(newSongs);
+  };
+
   //Handling play and pause
   const audioHandler = () => {
     if (isPlaying) {
@@ -65,25 +64,40 @@ const Player = ({
     //skip songs left or right functionality
     let currentIndex = Songs.findIndex((song) => song.id === currentSong.id);
     if (direction === "right") {
-      setCurrentSong(Songs[(currentIndex + 1) % Songs.length]);
+      const nextSong = Songs[(currentIndex + 1) % Songs.length];
+      setCurrentSong(nextSong);
+      activeSongHandler(nextSong);
     } else if (direction === "left") {
-      setCurrentSong(Songs[(currentIndex - 1 + Songs.length) % Songs.length]);
+      const prevSong = Songs[(currentIndex - 1 + Songs.length) % Songs.length];
+      setCurrentSong(prevSong);
+      activeSongHandler(prevSong);
     }
 
     playSong(isPlaying, audioRef);
+  };
+
+  const animateTrackWidth = {
+    transform: `translateX(${songInfo.animateWidth}%)`,
   };
 
   return (
     <div className="player">
       <div className="player__slider">
         <p>{formatTime(songInfo.currentTime)}</p>
-        <input
-          type="range"
-          min={0}
-          max={songInfo.duration || 0} //fix NaN
-          value={songInfo.currentTime}
-          onChange={dragHandler}
-        />
+        <div className="track">
+          <input
+            type="range"
+            min={0}
+            max={songInfo.duration || 0} //fix NaN
+            value={songInfo.currentTime}
+            onChange={dragHandler}
+            style={{
+              background: `linear-gradient(to right,${currentSong.background[0]},${currentSong.background[1]})`,
+            }}
+          />
+          <div className="animate-track" style={animateTrackWidth}></div>
+        </div>
+
         <p>{songInfo.duration ? formatTime(songInfo.duration) : "0:00"}</p>
       </div>
       <div className="player__buttons">

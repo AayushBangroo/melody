@@ -23,16 +23,37 @@ function App() {
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
     duration: 0,
+    animateWidth: 0,
   });
 
   const timeHandler = (e) => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
-    setSongInfo({ ...songInfo, currentTime: current, duration: duration });
+    //code for managinf width of Animate Track
+    const currentTime = Math.round(songInfo.currentTime);
+    const endTime = Math.round(songInfo.duration);
+    const percentageCompleted = Math.round((currentTime / endTime) * 100);
+
+    setSongInfo({
+      ...songInfo,
+      currentTime: current,
+      duration: duration,
+      animateWidth: percentageCompleted,
+    });
+  };
+
+  const songEndedHandler = async () => {
+    const currentIndex = Songs.findIndex((song) => song.id === currentSong.id);
+    await setCurrentSong(Songs[(currentIndex + 1) % Songs.length]);
+    if (isPlaying) audioRef.current.play();
   };
 
   return (
-    <div>
+    <div
+      className={`moveLeftTransition ${
+        isLibraryActive ? "moveRightTransition" : ""
+      }`}
+    >
       <Nav
         isLibraryActive={isLibraryActive}
         setIsLibraryActive={setIsLibraryActive}
@@ -63,6 +84,7 @@ function App() {
         ref={audioRef}
         onTimeUpdate={timeHandler}
         onLoadedMetadata={timeHandler}
+        onEnded={songEndedHandler}
       ></audio>
     </div>
   );

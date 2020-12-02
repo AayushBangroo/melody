@@ -27,7 +27,7 @@ const chill = () => {
       artist: "Philanthrope, chromonicci",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/2899f7cc22ab12e17d0119819aac3ca9dbab46e6-1024x1024.jpg",
-      background: ["##915746", "##6B2A26"],
+      background: ["#915746", "#6B2A26"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10263",
       id: uuidv4(),
       active: false,
@@ -38,7 +38,7 @@ const chill = () => {
       artist: "Philanthrope, chromonicci",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/2899f7cc22ab12e17d0119819aac3ca9dbab46e6-1024x1024.jpg",
-      background: ["##915746", "##6B2A26"],
+      background: ["#915746", "#6B2A26"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10263",
       id: uuidv4(),
       active: false,
@@ -48,7 +48,7 @@ const chill = () => {
       artist: "Philanthrope, chromonicci",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/2899f7cc22ab12e17d0119819aac3ca9dbab46e6-1024x1024.jpg",
-      background: ["##915746", "##6B2A26"],
+      background: ["#915746", "#6B2A26"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10263",
       id: uuidv4(),
       active: false,
@@ -58,7 +58,7 @@ const chill = () => {
       artist: "Philanthrope, chromonicci",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/2899f7cc22ab12e17d0119819aac3ca9dbab46e6-1024x1024.jpg",
-      background: ["##915746", "##6B2A26"],
+      background: ["#915746", "#6B2A26"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10263",
       id: uuidv4(),
       active: false,
@@ -68,7 +68,7 @@ const chill = () => {
       artist: "Philanthrope, chromonicci",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/2899f7cc22ab12e17d0119819aac3ca9dbab46e6-1024x1024.jpg",
-      background: ["##915746", "##6B2A26"],
+      background: ["#915746", "#6B2A26"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10263",
       id: uuidv4(),
       active: false,
@@ -78,7 +78,7 @@ const chill = () => {
       artist: "Philanthrope, chromonicci",
       cover:
         "https://chillhop.com/wp-content/uploads/2020/09/2899f7cc22ab12e17d0119819aac3ca9dbab46e6-1024x1024.jpg",
-      background: ["##915746", "##6B2A26"],
+      background: ["#915746", "#6B2A26"],
       audio: "https://mp3.chillhop.com/serve.php/?mp3=10263",
       id: uuidv4(),
       active: false,
